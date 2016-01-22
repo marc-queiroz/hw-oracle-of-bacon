@@ -9,7 +9,7 @@ class OracleOfBacon
   class InvalidError < RuntimeError ; end
   class NetworkError < RuntimeError ; end
   class InvalidKeyError < RuntimeError ; end
-
+    
   attr_accessor :from, :to
   attr_reader :api_key, :response, :uri
   
@@ -21,10 +21,14 @@ class OracleOfBacon
 
   def from_does_not_equal_to
     # YOUR CODE HERE
+    errors.add(:base, 'from and to should not be equal') if @from == @to
   end
 
   def initialize(api_key='')
     # your code here
+    @from = 'Kevin Bacon'
+    @to = 'Kevin Bacon'
+    @api_key = '38b99ce9ec87'
   end
 
   def find_connections
